@@ -1,5 +1,12 @@
-import src.Logging_class
+import src.Logging_class as logclass
 
-logger = Logging_class.txt_logger()
-logger.init("Hello")
+folder = r"C:\Temp"
+file_name = "log.txt"
+logger = logclass.txt_logger()
+logger.set_folder(folder)
+logger.set_file_name(file_name)
+logger.init("CAN_")
+
 logger.print_and_log("Hello")
+logger.insert_blank_lines(10)
+logger.stop_logging("stop logging, close the file")
