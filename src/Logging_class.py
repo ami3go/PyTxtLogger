@@ -7,25 +7,21 @@ def get_time_stamp():
     return(time_var.strftime("%y-%m-%d %H:%M:%S"))
 
 
-# def  get_file_name(txt=""):
-#     now = datetime.datetime.now()  # current date and time
-#     date_time_in_file_name = now.strftime("%Y_%m_%d__%H-%M-%S")  # get time and date formated into file friendly string
-#     file_path = "C:\\Users\\Vision\\Desktop\\JLR_ICIM\\logs\\"
-#     file_name_can_const = "_ICIM_CAN_DTClog.txt"  # fixed part of log file name
-#     file_name_can = file_path + date_time_in_file_name + "_" + txt  + file_name_can_const  # making a single string
-#     print("[Debug]: your CAN log file will be here -> ", file_name_can)  # just to check
-#     return file_name_can
-
-
 class txt_logger:
+
     def __init__(self):
         self.app = None
         self.file_name = None
         self.folder = None
-        self.file_name = None
         self.file_path = None
 
     def set_folder(self, folder):
+        """
+        set the working folder for storing log
+        the easy way is to copy the path and insert it like below
+        example: folder = r"C:\Temp"
+                 .set_folder(folder)
+        """
         if os.path.isdir(folder):
             self.folder = folder
         else:
@@ -33,6 +29,10 @@ class txt_logger:
             print("Please check the path")
 
     def set_file_name(self, file_name):
+        """
+           set the file name
+           """
+
         self.file_name = file_name
 
     def init(self, txt=""):
@@ -61,8 +61,6 @@ class txt_logger:
             print("Please set folder first")
 
 
-
-
     def stop_logging(self, message=None):
         # self.app.flush()
         # self.app.close()
@@ -85,3 +83,7 @@ class txt_logger:
         for i in range(line_num):
             txt = ""
             self.print_and_log(txt)
+
+
+if __name__ == '__main__':
+    pass
