@@ -70,6 +70,9 @@ class txt_logger:
         self.app = None
         self.file_name = None
 
+    def log(self, txt):
+        self.app.info(txt)
+
     def print_and_log(self, txt):
         self.app.info(txt)
         # self.app.flush()
