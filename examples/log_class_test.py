@@ -1,5 +1,6 @@
 import src.Logging_class as logclass
 
+
 folder = r"C:\Temp"
 file_name = "log.txt"
 logger = logclass.txt_logger()
