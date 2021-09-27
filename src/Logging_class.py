@@ -31,11 +31,13 @@ class txt_logger:
     def set_file_name(self, file_name):
         """
            set the file name
-           """
-
+        """
         self.file_name = file_name
 
     def init(self, txt=""):
+        """
+        Init methods actually create
+        """
 
         if self.folder is not None:
             if self.file_name is not None:
