@@ -66,11 +66,10 @@ class txt_logger:
         """
         if self.folder is not None:
             if self.file_name is not None:
-
-                self.app = logging.getLogger('Logger')
                 now = datetime.datetime.now()  # current date and time
-
                 date_time_fname = now.strftime("%Y_%m_%d__%H-%M-%S")  # get time and date formated into file friendly string
+                self.app = logging.getLogger(f'Logger_{date_time_fname}')
+
                 file_name = date_time_fname + "_" + txt + self.file_name  # making a single string
                 self.file_path = os.path.join(self.folder, file_name)
 
@@ -101,8 +100,8 @@ class txt_logger:
         if message is not None:
             print(f"{get_time_stamp()} !! {message}. ")
             print(f"{get_time_stamp()} !! File location: {self.file_path}")  # just to check
-        # self.app = None
-        # self.file_name = None
+        self.app = None
+        self.file_name = None
 
     def log(self, txt):
         '''
