@@ -101,8 +101,8 @@ class txt_logger:
         if message is not None:
             print(f"{get_time_stamp()} !! {message}. ")
             print(f"{get_time_stamp()} !! File location: {self.file_path}")  # just to check
-        self.app = None
-        self.file_name = None
+        # self.app = None
+        # self.file_name = None
 
     def log(self, txt):
         '''
