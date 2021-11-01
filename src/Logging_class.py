@@ -2,10 +2,10 @@ import logging
 import datetime
 import os
 
+
 def get_time_stamp():
     time_var = datetime.datetime.now()
-    return(time_var.strftime("%y-%m-%d %H:%M:%S"))
-
+    return time_var.strftime("%y-%m-%d %H:%M:%S")
 
 
 class txt_logger:
@@ -67,7 +67,8 @@ class txt_logger:
         if self.folder is not None:
             if self.file_name is not None:
                 now = datetime.datetime.now()  # current date and time
-                date_time_fname = now.strftime("%Y_%m_%d__%H-%M-%S")  # get time and date formated into file friendly string
+                # get time and date formatted into file friendly string
+                date_time_fname = now.strftime("%Y_%m_%d__%H-%M-%S")
                 self.app = logging.getLogger(f'Logger_{date_time_fname}')
 
                 file_name = date_time_fname + "_" + txt + self.file_name  # making a single string
@@ -86,15 +87,14 @@ class txt_logger:
         else:
             print("Please set folder first")
 
-
     def stop_logging(self, message=None):
-        '''
+        """
         Stop and close log file.
 
         :param message: print message into console and show log file location
         :type message: str
         :return: None
-        '''
+        """
         # self.app.flush()
         # self.app.close()
         if message is not None:
@@ -104,44 +104,44 @@ class txt_logger:
         self.file_name = None
 
     def log(self, txt):
-        '''
+        """
         Only write message to log file.
         :param txt: message that will be logged
         :type txt: str
         :return: None
-        '''
+        """
         self.app.info(txt)
 
     def print_and_log(self, txt):
-        '''
+        """
         Printing into console and to a log file
         :param txt: message that will be logged and printed
         :type txt: str
         :return:
-        '''
+        """
         self.app.info(txt)
         # self.app.flush()
         print(get_time_stamp(), txt)
 
     def print_and_log_ml(self, multi_line_txt):
-        '''
+        """
         Printing into console and to a log file several lines of text
 
         :param multi_line_txt: message that will be logged and printed
         :type multi_line_txt: str
         :return: None
-        '''
+        """
         for x in range(len(multi_line_txt)):
             self.print_and_log(multi_line_txt[x])
 
     def insert_blank_lines(self, line_num=1):
-        '''
+        """
         Inserting a blank lines to the log file and console.
 
         :param line_num: number of blank lines. Should be 0 - 10 000
         :type line_num: int
         :return: None
-        '''
+        """
         if line_num <= 0:
             pass
         if line_num >= 10000:
