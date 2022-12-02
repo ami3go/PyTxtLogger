@@ -15,6 +15,7 @@ class txt_logger:
         self.file_name = None
         self.folder = None
         self.file_path = None
+        self.full_file_name = None
 
     def set_folder(self, folder):
         """
@@ -72,6 +73,7 @@ class txt_logger:
                 self.app = logging.getLogger(f'Logger_{date_time_fname}')
 
                 file_name = date_time_fname + "_" + txt + self.file_name  # making a single string
+                self.full_file_name =  file_name
                 self.file_path = os.path.join(self.folder, file_name)
 
                 print("[Debug]: your CAN log file will be here -> ", self.file_path)  # just to check
@@ -119,9 +121,10 @@ class txt_logger:
         :type txt: str
         :return:
         """
-        self.app.info(txt)
+        txt_str = f", {txt}"
+        self.app.info(txt_str)
         # self.app.flush()
-        print(get_time_stamp(), txt)
+        print(get_time_stamp(), txt_str)
 
     def print_and_log_ml(self, multi_line_txt):
         """
@@ -149,6 +152,8 @@ class txt_logger:
         for i in range(int(line_num)):
             txt = ""
             self.print_and_log(txt)
+    def get_file_name(self):
+        return self.full_file_name
 
 
 if __name__ == '__main__':
