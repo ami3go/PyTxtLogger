@@ -8,7 +8,7 @@ def get_time_stamp():
     return time_var.strftime("%y-%m-%d %H:%M:%S")
 
 
-class txt_logger:
+class PyTxtLogger:
 
     def __init__(self):
         self.app = None

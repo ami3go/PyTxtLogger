@@ -1,3 +1,3 @@
 # init file
 # need to be checked
-from .PyTxtLogger import txt_logger
+from .pytxtlogger import pytxtlogger
