@@ -1,4 +1,4 @@
-import src.Logging_class as logclass
+import PyTxtLogger.PyTxtLogger as logclass
 
 folder = r"C:\Temp"
 file_name = "log.txt"
