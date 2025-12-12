@@ -2,7 +2,7 @@ import PyTxtLogger.pytxtlogger as logclass
 
 folder = r"C:\Temp"
 file_name = "log.txt"
-logger = logclass.pytxtlogger()
+logger = logclass.PyTxtLogger()
 logger.set_folder(folder)
 logger.set_file_name(file_name)
 logger.init("CAN_")
